@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- Main template for public pages -->
+	<definition name="mainDefinition" template="/WEB-INF/layouts/main.jsp">
+		<put-attribute name="pageTitle" value="bikeo.cz" />
+		<put-attribute name="navbar" value="/WEB-INF/layouts/navbar.jsp" />
+		<put-attribute name="categoryMenu" value="/WEB-INF/layouts/categoryMenu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
+	</definition>
+
+	<definition name="videoDetailDefinition" template="/WEB-INF/layouts/main-detail.jsp">
+		<put-attribute name="pageTitle" value="bikeo.cz" />
+		<put-attribute name="navbar" value="/WEB-INF/layouts/navbar.jsp" />
+		<put-attribute name="categoryMenu" value="/WEB-INF/layouts/videoMenu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
+	</definition>
+
+	<!-- Main template for admin pages -->
+	<definition name="adminDefinition" template="/WEB-INF/layouts/admin.jsp">
+		<put-attribute name="adminNavbar" value="/WEB-INF/layouts/adminNavbar.jsp" />
+	</definition>
+
+	<!-- Index page layout extends template for public pages -->
+	<definition name="index" extends="mainDefinition">
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/index.jsp" />
+		<put-attribute name="pageTitle" value="bikeo.cz" />
+	</definition>
+
+	<definition name="indexFilteredByCat" extends="mainDefinition">
+		<put-attribute name="bodyContent"
+			value="/WEB-INF/jsp/indexFilteredByCat.jsp" />
+		<put-attribute name="pageTitle" value="bikeo.cz" />
+	</definition>
+
+	<definition name="searchResult" extends="mainDefinition">
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/searchResult.jsp" />
+		<put-attribute name="pageTitle" value="bikeo.cz - Výsledky hledání" />
+	</definition>
+
+	<!-- Dashboard page layout extends template for admin pages -->
+	<definition name="dashboard" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Přehled" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/dashboard.jsp" />
+		<put-attribute name="current" value="dashboard" />
+	</definition>
+
+	<definition name="videos" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Videa" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/videos.jsp" />
+		<put-attribute name="current" value="videos" />
+	</definition>
+
+	<definition name="videosUnconfirmed" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Neschválená videa" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/videosUnconfirmed.jsp" />
+		<put-attribute name="current" value="videos" />
+	</definition>
+
+	<definition name="video-detail" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Videa - Detail" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/video-detail.jsp" />
+		<put-attribute name="current" value="videos" />
+	</definition>
+
+	<definition name="video-add" extends="mainDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Přidat video" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/addVideo.jsp" />
+	</definition>
+
+	<definition name="categories" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Kategorie" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/categories.jsp" />
+		<put-attribute name="current" value="categories" />
+	</definition>
+
+	<definition name="categoryDetail" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Kategorie - Detail" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/categoryDetail.jsp" />
+		<put-attribute name="current" value="categories" />
+	</definition>
+
+	<definition name="categoryEdit" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Kategorie - Upravit" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/categoryEdit.jsp" />
+		<put-attribute name="current" value="categories" />
+	</definition>
+
+	<definition name="users" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Uživatelé" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/users.jsp" />
+		<put-attribute name="current" value="users" />
+	</definition>
+
+	<definition name="userDetail" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Uživatelé - Detail" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/userDetail.jsp" />
+		<put-attribute name="current" value="users" />
+	</definition>
+
+	<definition name="userEdit" extends="adminDefinition">
+		<put-attribute name="pageTitle" value="Upravit uživatele" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/userEdit.jsp" />
+		<put-attribute name="current" value="users" />
+	</definition>
+
+	<definition name="registrationSuccess" extends="index">
+		<put-attribute name="bodyContent"
+			value="/WEB-INF/jsp/registrationSuccess.jsp" />
+	</definition>
+
+	<definition name="addVideoSuccess" extends="index">
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/addVideoSuccess.jsp" />
+	</definition>
+
+	<definition name="videoWatch" extends="videoDetailDefinition">
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/videoWatch.jsp" />
+		<put-attribute name="pageTitle" value="bikeo.cz" />
+	</definition>
+
+	<definition name="registration" extends="mainDefinition">
+		<put-attribute name="pageTitle" value="bikeo.cz - Registrace" />
+		<put-attribute name="bodyContent" value="/WEB-INF/jsp/registration.jsp" />
+	</definition>
+
+</tiles-definitions>
