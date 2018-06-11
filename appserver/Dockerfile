@@ -3,12 +3,9 @@
 #
 FROM maven:3.5.3 AS mavencontainer
 LABEL maintainer="mail@sipekmichal.cz"
-ENV REFRESHED_AT 2018-06-09
 WORKDIR /usr/src/bikeo
-COPY app/pom.xml .
-RUN mvn -B -f pom.xml -s /usr/share/maven/ref/settings-docker.xml dependency:resolve
 COPY ./app .
-RUN mvn -B -s /usr/share/maven/ref/settings-docker.xml package -DskipTests
+RUN mvn clean package -DskipTests
 
 #
 # Deploy application to Tomcat

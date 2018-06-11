@@ -1,11 +1,4 @@
 /target
 /src/main/webapp/WEB-INF/jdbc.properties
-\.settings/
 
-\.idea/
-
-\.classpath
-
-\.project
-
-\.springBeans
+data/

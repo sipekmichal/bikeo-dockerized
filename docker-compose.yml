@@ -6,14 +6,16 @@ services:
     build:
       context: ./database
     image: bikeodb
-    # set default mysql root password, change as needed
     environment:
-      MYSQL_ROOT_PASSWORD: password
-    # Expose port 3306 to host. Not for the application but
-    # handy to inspect the database from the host machine.
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=bikeo
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
     ports:
       - "3306:3306" 
-
+    volumes:
+      - ./data:/var/lib/mysql
+  
   webserver:
     build: 
       context: ./appserver
