@@ -1,7 +1,5 @@
-version: "3.3"
-
+version: "3.6"
 services:
-
   database:
     build:
       context: ./database
@@ -15,7 +13,6 @@ services:
       - "3306:3306" 
     volumes:
       - ./data:/var/lib/mysql
-  
   webserver:
     build: 
       context: ./appserver
@@ -23,3 +20,5 @@ services:
     ports:
       - "8080:8080" 
       - "8000:8000"
+    volumes:
+      - ./logs:/usr/local/tomcat/logs
