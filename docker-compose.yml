@@ -1,24 +1,26 @@
 version: "3.6"
 services:
   database:
+    image: bikeodb
     build:
       context: ./database
-    image: bikeodb
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=bikeo
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
-    ports:
-      - "3306:3306" 
-    volumes:
-      - ./data:/var/lib/mysql
+    restart: always
   webserver:
+    image: bikeoapp
+    depends_on:
+       - database
+    links: 
+       - database
     build: 
       context: ./appserver
-    image: bikeoapp
     ports:
-      - "8080:8080" 
+      - "8080:8080"
       - "8000:8000"
     volumes:
       - ./logs:/usr/local/tomcat/logs
+    restart: always
