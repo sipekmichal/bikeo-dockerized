@@ -2,3 +2,15 @@
 /src/main/webapp/WEB-INF/jdbc.properties
 
 data/
+
+\.idea/
+
+\.settings/
+
+logs/
+
+\.classpath
+
+\.project
+
+\.springBeans
